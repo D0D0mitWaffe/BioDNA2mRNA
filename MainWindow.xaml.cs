@@ -54,21 +54,26 @@ namespace BioDNA2mRNA {
                 Debug.WriteLine(DNAinput);
                 //Get mRNA fromn DNA
                 mRNAoutput = umwandeln(Convert2.mRNA, DNAinput);
-                //Get tRNA from 
                 mRNAinputBox.Text = mRNAoutput;
-                umwandeln(Convert2.tRNA, tRNAinput);
+                //Get tRNA from mRNA
+                tRNAoutput = umwandeln(Convert2.tRNA, mRNAoutput);
+                tRNAinputBox.Text = tRNAoutput;
             }
             if ((bool)FrommRNAcheckbox.IsChecked) {
                 mRNAinput = mRNAinputBox.Text.ToString();
                 Debug.WriteLine(mRNAinput);
-                umwandeln(Convert2.DNA, mRNAinput);
-                umwandeln(Convert2.tRNA, tRNAinput);
+                DNAoutput = umwandeln(Convert2.DNA, mRNAinput);
+                DNAinputBox.Text = DNAoutput;
+                tRNAoutput = umwandeln(Convert2.tRNA, mRNAinput);
+                tRNAinputBox.Text = tRNAoutput;
             }
             if ((bool)FromtRNAcheckbox.IsChecked) {
                 tRNAinput = tRNAinputBox.Text.ToString();
                 Debug.WriteLine(tRNAinput);
-                umwandeln(Convert2.mRNA, tRNAinput);
-                umwandeln(Convert2.DNA, tRNAinput);
+                mRNAoutput = umwandeln(Convert2.mRNA, tRNAinput);
+                mRNAinputBox.Text = mRNAoutput;
+                DNAoutput = umwandeln(Convert2.DNA, mRNAoutput);
+                DNAinputBox.Text = DNAoutput;
             }
         }
 
@@ -76,11 +81,28 @@ namespace BioDNA2mRNA {
             List<Char> newString = new List<char>();
             
             if (target == Convert2.DNA) {
-                
+                for (int i = 0; i < s.Length; i++) {
+                    char c = s[i];
+                    if (c == 'U' || c == 'u') {
+                        newString.Add('A');
+                    }
+                    if (c == 'A' || c == 'a') {
+                        newString.Add('T');
+                    }
+                    if (c == 'G' || c == 'g') {
+                        newString.Add('C');
+                    }
+                    if (c == 'C' || c == 'c') {
+                        newString.Add('G');
+                    }
+                }
             }
             if (target == Convert2.mRNA) {
                 for (int i = 0; i < s.Length; i++) {
                     char c = s[i];
+                    if(c == 'U' || c == 'u') {
+                        newString.Add('A');
+                    }
                     if (c == 'A' || c == 'a') {
                         newString.Add('U');
                     }
@@ -96,7 +118,21 @@ namespace BioDNA2mRNA {
                 }
             }
             if (target == Convert2.tRNA) {
-
+                for (int i = 0; i < s.Length; i++) {
+                    char c = s[i];
+                    if (c == 'A' || c == 'a') {
+                        newString.Add('U');
+                    }
+                    if (c == 'G' || c == 'g') {
+                        newString.Add('C');
+                    }
+                    if (c == 'C' || c == 'c') {
+                        newString.Add('G');
+                    }
+                    if (c == 'U' || c == 'u') {
+                        newString.Add('A');
+                    }
+                }
             } 
             
             char[] chararray = newString.ToArray();
