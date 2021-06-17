@@ -7,12 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="DNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,144,0,0" TextWrapping="Wrap" Text="Put DNA Tripletts in here" VerticalAlignment="Top" Width="672"/>
-        <TextBox x:Name="mRNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,192,0,0" TextWrapping="Wrap" Text="Put mRNA Tripletts in here" VerticalAlignment="Top" Width="672"/>
-        <TextBox x:Name="tRNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,240,0,0" TextWrapping="Wrap" Text="Put tRNA Tripletts in here" VerticalAlignment="Top" Width="672"/>
+        <TextBox x:Name="DNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,144,0,0" TextWrapping="Wrap" Text="Put DNA Tripletts in here" VerticalAlignment="Top" Width="640"/>
+        <TextBox x:Name="mRNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,192,0,0" TextWrapping="Wrap" Text="Put mRNA Tripletts in here" VerticalAlignment="Top" Width="640"/>
+        <TextBox x:Name="tRNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,240,0,0" TextWrapping="Wrap" Text="Put tRNA Tripletts in here" VerticalAlignment="Top" Width="640"/>
         <CheckBox x:Name="FromDNAcheckbox" Content="Von DNA zu other Converten" HorizontalAlignment="Left" Margin="64,124,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="FrommRNAcheckbox" Content="Von mRNA zu other Converten" HorizontalAlignment="Left" Margin="64,172,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="FromtRNAcheckbox" Content="Von tRNA zu other Converten" HorizontalAlignment="Left" Margin="64,220,0,0" VerticalAlignment="Top"/>
         <Button Content="Start Translation" x:Name="Start" Click="Start_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="74" Margin="0,0,0,60"/>
+        <Button x:Name="KopierenButton1" Content="Copy" HorizontalAlignment="Left" Margin="709,145,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="KopierenButton2" Content="Copy" HorizontalAlignment="Left" Margin="709,193,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="KopierenButton3" Content="Copy" HorizontalAlignment="Left" Margin="709,242,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

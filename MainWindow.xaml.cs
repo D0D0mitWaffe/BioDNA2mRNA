@@ -145,6 +145,7 @@ namespace BioDNA2mRNA {
         private void FromtRNAcheckbox_Click(object sender, RoutedEventArgs e) {
             resetValues();
             if ((bool)FromtRNAcheckbox.IsChecked) {
+                tRNAinputBox.Text = "";
                 DNAinputBox.IsEnabled = false;
                 mRNAinputBox.IsEnabled = false;
                 tRNAinputBox.IsEnabled = true;
@@ -152,6 +153,8 @@ namespace BioDNA2mRNA {
                 FromDNAcheckbox.IsChecked = false;
             }
             else {
+                tRNAinputBox.Text = "Put tRNA Tripletts in here";
+                
                 DNAinputBox.IsEnabled = true;
                 mRNAinputBox.IsEnabled = true;
                 tRNAinputBox.IsEnabled = true;
@@ -163,6 +166,7 @@ namespace BioDNA2mRNA {
         private void FrommRNAcheckbox_Click(object sender, RoutedEventArgs e) {
             resetValues();
             if ((bool)FrommRNAcheckbox.IsChecked) {
+                mRNAinputBox.Text = "";
                 DNAinputBox.IsEnabled = false;
                 mRNAinputBox.IsEnabled = true;
                 tRNAinputBox.IsEnabled = false;
@@ -170,6 +174,7 @@ namespace BioDNA2mRNA {
                 FromDNAcheckbox.IsChecked = false;
             }
             else {
+                mRNAinputBox.Text = "Put mRNA Tripletts in here";
                 DNAinputBox.IsEnabled = true;
                 mRNAinputBox.IsEnabled = true;
                 tRNAinputBox.IsEnabled = true;
@@ -182,6 +187,7 @@ namespace BioDNA2mRNA {
         private void FromDNAcheckbox_Click(object sender, RoutedEventArgs e) {
             resetValues();
             if ((bool)FromDNAcheckbox.IsChecked) {
+                DNAinputBox.Text = "";
                 DNAinputBox.IsEnabled = true;
                 mRNAinputBox.IsEnabled = false;
                 tRNAinputBox.IsEnabled = false;
@@ -189,6 +195,7 @@ namespace BioDNA2mRNA {
                 FromtRNAcheckbox.IsChecked = false;
             }
             else {
+                DNAinputBox.Text = "Put DNA Tripletts in here";
                 DNAinputBox.IsEnabled = true;
                 mRNAinputBox.IsEnabled = true;
                 tRNAinputBox.IsEnabled = true;
