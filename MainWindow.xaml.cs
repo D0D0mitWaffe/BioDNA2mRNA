@@ -1,18 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace BioDNA2mRNA {
     
@@ -203,6 +193,19 @@ namespace BioDNA2mRNA {
                 FromtRNAcheckbox.IsChecked = false;
             }
         }
+
         #endregion
+
+        private void KopierenButton1_Click(object sender, RoutedEventArgs e) {
+            Clipboard.SetText(DNAinputBox.Text.ToString());
+        }
+
+        private void KopierenButton2_Click(object sender, RoutedEventArgs e) {
+            Clipboard.SetText(mRNAinputBox.Text.ToString());
+        }
+
+        private void KopierenButton3_Click(object sender, RoutedEventArgs e) {
+            Clipboard.SetText(tRNAinputBox.Text.ToString());
+        }
     }
 }
