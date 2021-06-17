@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BioDNA2mRNA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="858">
     <Grid>
         <TextBox x:Name="DNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,144,0,0" TextWrapping="Wrap" Text="Put DNA Tripletts in here" VerticalAlignment="Top" Width="640"/>
         <TextBox x:Name="mRNAinputBox" HorizontalAlignment="Left" Height="23" Margin="64,192,0,0" TextWrapping="Wrap" Text="Put mRNA Tripletts in here" VerticalAlignment="Top" Width="640"/>
