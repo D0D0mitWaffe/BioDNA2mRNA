@@ -17,6 +17,8 @@ namespace BioDNA2mRNA {
 
         enum Convert2 {DNA,mRNA,tRNA};
 
+        Dictionary<string, string> CodeSonne = new Dictionary<string, string>();
+
         public MainWindow() {
             InitializeComponent();
             FromDNAcheckbox.Click += FromDNAcheckbox_Click;
@@ -25,6 +27,7 @@ namespace BioDNA2mRNA {
             DNAinputBox.IsEnabled = false;
             mRNAinputBox.IsEnabled = false;
             tRNAinputBox.IsEnabled = false;
+            AddAminosäuren();
         }
 
         
@@ -36,6 +39,78 @@ namespace BioDNA2mRNA {
             mRNAoutput = null;
             tRNAinput = null;
             tRNAoutput = null;
+        }
+
+        void AddAminosäuren() {
+            //Alle mit A
+            CodeSonne.Add("AGG", "Arg");
+            CodeSonne.Add("AGA", "Arg");
+            CodeSonne.Add("AGC", "Ser");
+            CodeSonne.Add("AGU", "Ser");
+            CodeSonne.Add("AAA", "Lys");
+            CodeSonne.Add("AAG", "Lys");
+            CodeSonne.Add("AAC", "Asn");
+            CodeSonne.Add("AAG", "Asn");
+            CodeSonne.Add("ACG", "Thr");
+            CodeSonne.Add("ACA", "Thr");
+            CodeSonne.Add("ACC", "Thr");
+            CodeSonne.Add("ACU", "Thr");
+            CodeSonne.Add("AUG", "Met");
+            CodeSonne.Add("AUA", "Ile");
+            CodeSonne.Add("AUC", "Ile");
+            CodeSonne.Add("AUU", "Ile");
+            //alle mit C
+            CodeSonne.Add("CGG", "Arg");
+            CodeSonne.Add("CGA", "Arg");
+            CodeSonne.Add("CGC", "Arg");
+            CodeSonne.Add("CGU", "Arg");
+            CodeSonne.Add("CAG", "Gln");
+            CodeSonne.Add("CAA", "Gln");
+            CodeSonne.Add("CAC", "His");
+            CodeSonne.Add("CAU", "His");
+            CodeSonne.Add("CCG", "Pro");
+            CodeSonne.Add("CCA", "Pro");
+            CodeSonne.Add("CCC", "Pro");
+            CodeSonne.Add("CCU", "Pro");
+            CodeSonne.Add("CUG", "Leu");
+            CodeSonne.Add("CUA", "Leu");
+            CodeSonne.Add("CUU", "Leu");
+            CodeSonne.Add("CUC", "Leu");
+            //Alle mit U
+            CodeSonne.Add("UGG", "Trp");
+            CodeSonne.Add("UGA", "Stopp");
+            CodeSonne.Add("UGC", "Cys");
+            CodeSonne.Add("UGU", "Cys");
+            CodeSonne.Add("UAG", "Stopp");
+            CodeSonne.Add("UAA", "Stopp");
+            CodeSonne.Add("UAC", "Tyr");
+            CodeSonne.Add("UAU", "Tyr");
+            CodeSonne.Add("UCG", "Ser");
+            CodeSonne.Add("UCA", "Ser");
+            CodeSonne.Add("UCC", "Ser");
+            CodeSonne.Add("UCU", "Ser");
+            CodeSonne.Add("UUA", "Leu");
+            CodeSonne.Add("UUG", "Leu");
+            CodeSonne.Add("UUU", "Phe");
+            CodeSonne.Add("UUC", "Phe");
+            //Alle mit G
+            CodeSonne.Add("GUU", "Val");
+            CodeSonne.Add("GUC", "Val");
+            CodeSonne.Add("GUA", "Val");
+            CodeSonne.Add("GUG", "Val");
+            CodeSonne.Add("GCU", "Ala");
+            CodeSonne.Add("GCA", "Ala");
+            CodeSonne.Add("GCC", "Ala");
+            CodeSonne.Add("GCG", "Ala");
+            CodeSonne.Add("GAU", "Glu");
+            CodeSonne.Add("GAC", "Asp");
+            CodeSonne.Add("GAA", "Glu");
+            CodeSonne.Add("GAG", "Asp");
+            CodeSonne.Add("GGU", "Gly");
+            CodeSonne.Add("GGC", "Gly");
+            CodeSonne.Add("GGA", "Gly");
+            CodeSonne.Add("GGG", "Gly");
+
         }
 
         private void Start_Click(object sender, RoutedEventArgs e) {
