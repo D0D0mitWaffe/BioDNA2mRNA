@@ -42,12 +42,12 @@ namespace BioDNA2mRNA {
             if ((bool)FromDNAcheckbox.IsChecked) {
                 DNAinput = DNAinputBox.Text.ToString();
                 Debug.WriteLine(DNAinput);
-                //Get mRNA fromn DNA
                 mRNAoutput = umwandeln(Convert2.mRNA, DNAinput);
                 mRNAinputBox.Text = mRNAoutput;
-                //Get tRNA from mRNA
                 tRNAoutput = umwandeln(Convert2.tRNA, mRNAoutput);
                 tRNAinputBox.Text = tRNAoutput;
+                DNAinput = System.Text.RegularExpressions.Regex.Replace(DNAinput, ".{3}", "$0 ");
+                DNAinputBox.Text = DNAinput;
             }
             if ((bool)FrommRNAcheckbox.IsChecked) {
                 mRNAinput = mRNAinputBox.Text.ToString();
@@ -56,6 +56,8 @@ namespace BioDNA2mRNA {
                 DNAinputBox.Text = DNAoutput;
                 tRNAoutput = umwandeln(Convert2.tRNA, mRNAinput);
                 tRNAinputBox.Text = tRNAoutput;
+                mRNAinput = System.Text.RegularExpressions.Regex.Replace(mRNAinput, ".{3}", "$0 ");
+                mRNAinputBox.Text = mRNAinput;
             }
             if ((bool)FromtRNAcheckbox.IsChecked) {
                 tRNAinput = tRNAinputBox.Text.ToString();
@@ -64,6 +66,8 @@ namespace BioDNA2mRNA {
                 mRNAinputBox.Text = mRNAoutput;
                 DNAoutput = umwandeln(Convert2.DNA, mRNAoutput);
                 DNAinputBox.Text = DNAoutput;
+                tRNAinput = System.Text.RegularExpressions.Regex.Replace(tRNAinput, ".{3}", "$0 ");
+                tRNAinputBox.Text = tRNAinput;
             }
         }
 
@@ -127,6 +131,8 @@ namespace BioDNA2mRNA {
             
             char[] chararray = newString.ToArray();
             string _s = new String(chararray);
+            Debug.WriteLine(_s);
+            _s = System.Text.RegularExpressions.Regex.Replace(_s, ".{3}", "$0 ");
             Debug.WriteLine(_s);
             return _s;
         }
