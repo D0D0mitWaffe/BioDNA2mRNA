@@ -18,6 +18,7 @@ namespace BioDNA2mRNA {
         enum Convert2 {DNA,mRNA,tRNA};
 
         Dictionary<string, string> CodeSonne = new Dictionary<string, string>();
+        Dictionary<string, string> Aminosäuren = new Dictionary<string, string>();
 
         public MainWindow() {
             InitializeComponent();
@@ -110,6 +111,28 @@ namespace BioDNA2mRNA {
             CodeSonne.Add("GGC", "Gly");
             CodeSonne.Add("GGA", "Gly");
             CodeSonne.Add("GGG", "Gly");
+            //Amiosäuren translation
+            Aminosäuren.Add("Gly", "Glycin");
+            Aminosäuren.Add("Val", "Valin");
+            Aminosäuren.Add("Ile", "Isoleucin");
+            Aminosäuren.Add("Phe", "Glycin");
+            Aminosäuren.Add("Cys", "Glycin");
+            Aminosäuren.Add("Ser", "Glycin");
+            Aminosäuren.Add("Asn", "Glycin");
+            Aminosäuren.Add("Tyr", "Glycin");
+            Aminosäuren.Add("Asp", "Glycin");
+            Aminosäuren.Add("Glu", "Glycin");
+            Aminosäuren.Add("Lys", "Glycin");
+            Aminosäuren.Add("His", "Glycin");
+            Aminosäuren.Add("Ala", "Alanin");
+            Aminosäuren.Add("Leu", "Glycin");
+            Aminosäuren.Add("Pro", "Glycin");
+            Aminosäuren.Add("Met", "Glycin");
+            Aminosäuren.Add("Thr", "Glycin");
+            Aminosäuren.Add("Gln", "Glycin");
+            Aminosäuren.Add("Trp", "Glycin");
+            Aminosäuren.Add("Arg", "Arginin    ");
+
 
         }
 
