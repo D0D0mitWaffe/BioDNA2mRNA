@@ -115,23 +115,23 @@ namespace BioDNA2mRNA {
             Aminosäuren.Add("Gly", "Glycin");
             Aminosäuren.Add("Val", "Valin");
             Aminosäuren.Add("Ile", "Isoleucin");
-            Aminosäuren.Add("Phe", "Glycin");
-            Aminosäuren.Add("Cys", "Glycin");
-            Aminosäuren.Add("Ser", "Glycin");
-            Aminosäuren.Add("Asn", "Glycin");
-            Aminosäuren.Add("Tyr", "Glycin");
-            Aminosäuren.Add("Asp", "Glycin");
-            Aminosäuren.Add("Glu", "Glycin");
-            Aminosäuren.Add("Lys", "Glycin");
-            Aminosäuren.Add("His", "Glycin");
+            Aminosäuren.Add("Phe", "Phenylalanin");
+            Aminosäuren.Add("Cys", "Cystein");
+            Aminosäuren.Add("Ser", "Serin");
+            Aminosäuren.Add("Asn", "Asparagin");
+            Aminosäuren.Add("Tyr", "Tyrosin");
+            Aminosäuren.Add("Asp", "Aspartat");
+            Aminosäuren.Add("Glu", "Glutamat");
+            Aminosäuren.Add("Lys", "Lysin");
+            Aminosäuren.Add("His", "Histidin");
             Aminosäuren.Add("Ala", "Alanin");
-            Aminosäuren.Add("Leu", "Glycin");
-            Aminosäuren.Add("Pro", "Glycin");
-            Aminosäuren.Add("Met", "Glycin");
-            Aminosäuren.Add("Thr", "Glycin");
-            Aminosäuren.Add("Gln", "Glycin");
-            Aminosäuren.Add("Trp", "Glycin");
-            Aminosäuren.Add("Arg", "Arginin    ");
+            Aminosäuren.Add("Leu", "Leucin");
+            Aminosäuren.Add("Pro", "Prolin");
+            Aminosäuren.Add("Met", "Methionin");
+            Aminosäuren.Add("Thr", "Threonin");
+            Aminosäuren.Add("Gln", "Glutamin");
+            Aminosäuren.Add("Trp", "Tryptophan");
+            Aminosäuren.Add("Arg", "Arginin");
 
 
         }
