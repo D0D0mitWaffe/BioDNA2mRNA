@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 
@@ -19,6 +20,8 @@ namespace BioDNA2mRNA {
 
         Dictionary<string, string> CodeSonne = new Dictionary<string, string>();
         Dictionary<string, string> Aminosäuren = new Dictionary<string, string>();
+
+        List<String> basentriplets = new List<string>(); 
 
         public MainWindow() {
             InitializeComponent();
@@ -51,7 +54,7 @@ namespace BioDNA2mRNA {
             CodeSonne.Add("AAA", "Lys");
             CodeSonne.Add("AAG", "Lys");
             CodeSonne.Add("AAC", "Asn");
-            CodeSonne.Add("AAG", "Asn");
+            CodeSonne.Add("AAU ", "Asn");
             CodeSonne.Add("ACG", "Thr");
             CodeSonne.Add("ACA", "Thr");
             CodeSonne.Add("ACC", "Thr");
@@ -146,6 +149,7 @@ namespace BioDNA2mRNA {
                 tRNAinputBox.Text = tRNAoutput;
                 DNAinput = System.Text.RegularExpressions.Regex.Replace(DNAinput, ".{3}", "$0 ");
                 DNAinputBox.Text = DNAinput;
+                getAminosäuren();
             }
             if ((bool)FrommRNAcheckbox.IsChecked) {
                 mRNAinput = mRNAinputBox.Text.ToString();
@@ -156,6 +160,7 @@ namespace BioDNA2mRNA {
                 tRNAinputBox.Text = tRNAoutput;
                 mRNAinput = System.Text.RegularExpressions.Regex.Replace(mRNAinput, ".{3}", "$0 ");
                 mRNAinputBox.Text = mRNAinput;
+                getAminosäuren();
             }
             if ((bool)FromtRNAcheckbox.IsChecked) {
                 tRNAinput = tRNAinputBox.Text.ToString();
@@ -166,6 +171,7 @@ namespace BioDNA2mRNA {
                 DNAinputBox.Text = DNAoutput;
                 tRNAinput = System.Text.RegularExpressions.Regex.Replace(tRNAinput, ".{3}", "$0 ");
                 tRNAinputBox.Text = tRNAinput;
+                getAminosäuren();
             }
         }
 
@@ -232,7 +238,23 @@ namespace BioDNA2mRNA {
             Debug.WriteLine(_s);
             _s = System.Text.RegularExpressions.Regex.Replace(_s, ".{3}", "$0 ");
             Debug.WriteLine(_s);
+            
             return _s;
+
+           
+        }
+
+        void getAminosäuren() {
+            string mRNAWorkcopy = mRNAoutput;
+            mRNAWorkcopy = Regex.Replace(mRNAWorkcopy, @"\s+", "");
+            for (int i = 0; i < mRNAWorkcopy.Length - 1; i++) {
+                basentriplets.Add(mRNAWorkcopy.Substring(0, 3));
+                mRNAWorkcopy = mRNAWorkcopy.Remove(0, 3);
+            }
+            foreach(string s in basentriplets) {
+                Debug.WriteLine(s);
+            }
+            
         }
 
         #region UI Stuff
