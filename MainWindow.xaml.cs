@@ -247,7 +247,7 @@ namespace BioDNA2mRNA {
         void getAminosäuren() {
             string mRNAWorkcopy = mRNAoutput;
             mRNAWorkcopy = Regex.Replace(mRNAWorkcopy, @"\s+", "");
-            for (int i = 0; i < mRNAWorkcopy.Length - 1; i++) {
+            while(mRNAWorkcopy.Length > 0){
                 basentriplets.Add(mRNAWorkcopy.Substring(0, 3));
                 mRNAWorkcopy = mRNAWorkcopy.Remove(0, 3);
             }
