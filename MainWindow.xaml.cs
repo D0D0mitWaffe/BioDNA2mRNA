@@ -254,6 +254,38 @@ namespace BioDNA2mRNA {
             foreach(string s in basentriplets) {
                 Debug.WriteLine(s);
             }
+
+            List<string> AmiSequ = new List<string>();
+            List<string> FullAmiSequ = new List<string>();
+            foreach(string s in basentriplets) {
+                string output = null;
+                CodeSonne.TryGetValue(s, out output);
+                AmiSequ.Add(output);
+
+            }
+
+            foreach(string s in AmiSequ) {
+                string output = null;
+                Aminosäuren.TryGetValue(s, out output);
+                FullAmiSequ.Add(output);
+            }
+
+            foreach(string s in AmiSequ) {
+                Debug.WriteLine(s);
+            }
+            string[] convertArray = AmiSequ.ToArray();
+            string _s = string.Join(" ", convertArray);
+            Debug.WriteLine(_s);
+            AminosäurenOutShort.Text = _s.ToString();
+
+            foreach (string s in FullAmiSequ) {
+                Debug.WriteLine(s);
+            }
+
+            string[] converterArray2 = FullAmiSequ.ToArray();
+            string __s = string.Join(" ", converterArray2);
+            Debug.WriteLine(__s);
+            AminosäurenOutFull.Text = __s.ToString();
             
         }
 
@@ -332,6 +364,12 @@ namespace BioDNA2mRNA {
 
         private void KopierenButton3_Click(object sender, RoutedEventArgs e) {
             Clipboard.SetText(tRNAinputBox.Text.ToString());
+        }
+        private void KopierenButton4_Click(object sender, RoutedEventArgs e) {
+            Clipboard.SetText(AminosäurenOutShort.Text.ToString());
+        }
+        private void KopierenButton5_Click(object sender, RoutedEventArgs e) {
+            Clipboard.SetText(AminosäurenOutFull.Text.ToString());
         }
     }
 }
