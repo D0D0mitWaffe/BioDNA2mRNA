@@ -140,19 +140,24 @@ namespace BioDNA2mRNA {
         }
 
         private void Start_Click(object sender, RoutedEventArgs e) {
+
+            AminosäurenOutFull.Text = "";
+            AminosäurenOutShort.Text = "";
             if ((bool)FromDNAcheckbox.IsChecked) {
                 DNAinput = DNAinputBox.Text.ToString();
+                DNAinput = Regex.Replace(DNAinput, @"\s+", "");
                 Debug.WriteLine(DNAinput);
                 mRNAoutput = umwandeln(Convert2.mRNA, DNAinput);
                 mRNAinputBox.Text = mRNAoutput;
                 tRNAoutput = umwandeln(Convert2.tRNA, mRNAoutput);
                 tRNAinputBox.Text = tRNAoutput;
-                DNAinput = System.Text.RegularExpressions.Regex.Replace(DNAinput, ".{3}", "$0 ");
+                DNAinput = Regex.Replace(DNAinput, ".{3}", "$0 ");
                 DNAinputBox.Text = DNAinput;
                 getAminosäuren();
             }
             if ((bool)FrommRNAcheckbox.IsChecked) {
                 mRNAinput = mRNAinputBox.Text.ToString();
+                mRNAinput = Regex.Replace(mRNAinput, @"\s+", "");
                 Debug.WriteLine(mRNAinput);
                 DNAoutput = umwandeln(Convert2.DNA, mRNAinput);
                 DNAinputBox.Text = DNAoutput;
@@ -164,6 +169,7 @@ namespace BioDNA2mRNA {
             }
             if ((bool)FromtRNAcheckbox.IsChecked) {
                 tRNAinput = tRNAinputBox.Text.ToString();
+                tRNAinput = Regex.Replace(tRNAinput, @"\s+", "");
                 Debug.WriteLine(tRNAinput);
                 mRNAoutput = umwandeln(Convert2.mRNA, tRNAinput);
                 mRNAinputBox.Text = mRNAoutput;
@@ -245,48 +251,58 @@ namespace BioDNA2mRNA {
         }
 
         void getAminosäuren() {
+            AminosäurenOutFull.Text = " ";
+            AminosäurenOutShort.Text = " ";
             string mRNAWorkcopy = mRNAoutput;
             mRNAWorkcopy = Regex.Replace(mRNAWorkcopy, @"\s+", "");
-            while(mRNAWorkcopy.Length > 0){
-                basentriplets.Add(mRNAWorkcopy.Substring(0, 3));
-                mRNAWorkcopy = mRNAWorkcopy.Remove(0, 3);
+            bool isteilbar = false;
+            if (mRNAWorkcopy.Length % 3 == 0) {
+                isteilbar = true;
+            } else {
+                MessageBox.Show("Der eingegebene Strang ist nicht in Triplets teilbar. Bitte sorge dafür, dass der Code durch 3 teilbar ist");
             }
-            foreach(string s in basentriplets) {
-                Debug.WriteLine(s);
+            if (isteilbar) {
+                while (mRNAWorkcopy.Length > 0) {
+                    basentriplets.Add(mRNAWorkcopy.Substring(0, 3));
+                    mRNAWorkcopy = mRNAWorkcopy.Remove(0, 3);
+                }
+
+                foreach (string s in basentriplets) {
+                    Debug.WriteLine(s);
+                }
+
+                List<string> AmiSequ = new List<string>();
+                List<string> FullAmiSequ = new List<string>();
+                foreach (string s in basentriplets) {
+                    string output = null;
+                    CodeSonne.TryGetValue(s, out output);
+                    AmiSequ.Add(output);
+
+                }
+
+                foreach (string s in AmiSequ) {
+                    string output = null;
+                    Aminosäuren.TryGetValue(s, out output);
+                    FullAmiSequ.Add(output);
+                }
+
+                foreach (string s in AmiSequ) {
+                    Debug.WriteLine(s);
+                }
+                string[] convertArray = AmiSequ.ToArray();
+                string _s = string.Join(" ", convertArray);
+                Debug.WriteLine(_s);
+                AminosäurenOutShort.Text = _s.ToString();
+
+                foreach (string s in FullAmiSequ) {
+                    Debug.WriteLine(s);
+                }
+
+                string[] converterArray2 = FullAmiSequ.ToArray();
+                string __s = string.Join(" ", converterArray2);
+                Debug.WriteLine(__s);
+                AminosäurenOutFull.Text = __s.ToString();
             }
-
-            List<string> AmiSequ = new List<string>();
-            List<string> FullAmiSequ = new List<string>();
-            foreach(string s in basentriplets) {
-                string output = null;
-                CodeSonne.TryGetValue(s, out output);
-                AmiSequ.Add(output);
-
-            }
-
-            foreach(string s in AmiSequ) {
-                string output = null;
-                Aminosäuren.TryGetValue(s, out output);
-                FullAmiSequ.Add(output);
-            }
-
-            foreach(string s in AmiSequ) {
-                Debug.WriteLine(s);
-            }
-            string[] convertArray = AmiSequ.ToArray();
-            string _s = string.Join(" ", convertArray);
-            Debug.WriteLine(_s);
-            AminosäurenOutShort.Text = _s.ToString();
-
-            foreach (string s in FullAmiSequ) {
-                Debug.WriteLine(s);
-            }
-
-            string[] converterArray2 = FullAmiSequ.ToArray();
-            string __s = string.Join(" ", converterArray2);
-            Debug.WriteLine(__s);
-            AminosäurenOutFull.Text = __s.ToString();
-            
         }
 
         #region UI Stuff

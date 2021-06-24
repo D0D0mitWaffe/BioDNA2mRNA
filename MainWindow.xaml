@@ -20,7 +20,7 @@
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="Just output of the shortcut of the Aminosäure:" Margin="51,182,0,0"/>
         <TextBox Text="Just output" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" x:Name="AminosäurenOutShort" Height="23" Width="640" Margin="51,211,0,0" IsEnabled="False"/>
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="Just output of the full lenght of the Aminosäure:" Margin="51,239,0,0"/>
-        <TextBox Text="Just output" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" x:Name="AminosäurenOutFull" Height="23" Width="640" Margin="51,268,0,0" IsEnabled="False"/>
+        <TextBox Text="Just output" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" x:Name="AminosäurenOutFull" Height="50" Width="640" Margin="51,268,0,0" IsEnabled="False"/>
         <Button x:Name="KopierenButton4" Content="Copy" HorizontalAlignment="Left" Margin="696,214,0,0" VerticalAlignment="Top" Width="75" Click="KopierenButton4_Click"/>
         <Button x:Name="KopierenButton5" Content="Copy" HorizontalAlignment="Left" Margin="696,271,0,0" VerticalAlignment="Top" Width="75" Click="KopierenButton5_Click"/>
     </Grid>
